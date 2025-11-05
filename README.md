@@ -3,5 +3,5 @@ CareerAI's repositiory for the job parsing daemon, model calling, and applicatio
 
 ## Initializing Dependencies in requirements.txt
 By installing the pipreqs library using
-'''bash
+```bash
 pip install pipreqs
