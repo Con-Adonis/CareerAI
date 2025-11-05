@@ -21,8 +21,8 @@ pip install -r requirements.txt
 ```
 
 
-### Contributing (for devs)
-## Initializing dependencies in requirements.txt
+## Contributing (for devs)
+### Initializing dependencies in requirements.txt
 To store all the dependencies in one file for an easy user download, we use the pipreqs library.
 
 Firstly install the pipreqs library:
