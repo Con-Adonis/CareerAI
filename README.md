@@ -31,5 +31,5 @@ pip install pipreqs
 ```
 Then utilize the following command after writing a contribution that imports a new dependency:
 ```bash
-python -m pipreqs.pipreqs [folder to be added, use '.' for all] --force
+pip freeze > requirements.txt
 ```
