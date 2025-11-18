@@ -1,14 +1,15 @@
 import tkinter as tk
 
-def welcomeScreen(stdscr):
+def welcomeScreen():
     root = tk.Tk()
-    root.title("Welcome Screen")
+    root.title("CareerAI")
+    root.geometry("400x200")
 
-    welcome_label = tk.Label(root, text="Welcome to the Application!", font=("Helvetica", 16))
-    welcome_label.pack(pady=20)
+    welcome_label = tk.Label(root, text="CareerAI", font=("Helvetica", 30, "bold", "italic"))
+    welcome_label.pack(pady=10, padx=20)
 
-    instruction_label = tk.Label(root, text="Press any key to continue...", font=("Helvetica", 12))
-    instruction_label.pack(pady=10)
+    instruction_label = tk.Label(root, text="Apply to jobs smarter. Press any button to continue...", font=("Helvetica", 12))
+    instruction_label.pack(pady=10, padx=20)
 
     def on_key_press(event):
         root.destroy()

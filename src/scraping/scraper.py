@@ -5,9 +5,3 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-#setting up web driver
-def driverSetup():
-    chromeOptions = webdriver.ChromeOptions()
-    chromeOptions.add_argument("--headless")  # Run in headless mode
-    driver = webdriver.Chrome(options=chromeOptions)
-    print("success")
