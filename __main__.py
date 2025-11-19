@@ -1,11 +1,11 @@
 import os
 import sys
 from src.scraping.webdriver import webDriverManager
-import src.user.welcome as welcome
+import user.installWizard.welcome as welcome
 
 def main():
-    #welcome screen/ setup wizard
-    #welcome.main()
+    #welcome screen/ setup wizard, comment line below to remove initialization process
+    welcome.main()
     
     #establish web driver
     manager = webDriverManager()
