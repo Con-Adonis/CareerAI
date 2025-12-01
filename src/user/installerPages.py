@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.ttk as ttk
+from installerLogic import apiEntry
 
 class installer(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -12,7 +13,7 @@ class installer(tk.Tk):
         container.grid_columnconfigure(0, weight = 1)
 
         self.frames = {}
-        for F in (welcomeScreen, apiPrompt):
+        for F in (welcomeScreen, apiPrompt, done):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row = 0, column = 0, sticky ="nsew")
@@ -40,22 +41,37 @@ class welcomeScreen(tk.Frame):
         button = ttk.Button(self, text="Click to Continue", command=lambda: controller.show_frame(apiPrompt))
         button.pack()
 
-#TODO: have submit button write to .env
 class apiPrompt(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
+        # API Prompt Header
         label = ttk.Label(self, text ="API Prompt", font = ("Helvetica", 30, "bold", "italic"))
         label.pack(pady=10, padx=20)
 
+        # API Prompt Instruction Subheader
         instruction_label = ttk.Label(self, text="Enter your API key below:", font=("Helvetica", 12))
         instruction_label.pack(pady=10, padx=20)
 
+        # API Key Text Entry
         self.api_entry = ttk.Entry(self, width=50)
         self.api_entry.pack(pady=10, padx=20)
 
-        submit_button = ttk.Button(self, text="Submit", command=print("API Key Submitted"))
+        # Submit Button
+        submit_button = ttk.Button(self, text="Submit", command=lambda: (apiEntry(self.api_entry.get()), controller.show_frame(done)))
         submit_button.pack(pady=10, padx=20)
+
+class done(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        # Done Header
+        label = ttk.Label(self, text ="Done", font = ("Helvetica", 30, "bold", "italic"))
+        label.pack(pady=10, padx=20)
+
+        # Done Instruction Subheader
+        instruction_label = ttk.Label(self, text="Installation Complete!", font=("Helvetica", 12))
+        instruction_label.pack(pady=10, padx=20)
 
 app = installer()
 app.mainloop()
