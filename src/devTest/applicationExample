@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Application - TechCorp</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; padding: 20px; }
+        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 600px; }
+        h1 { color: #333; text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+        input[type="text"], textarea, input[type="email"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; }
+        textarea { height: 100px; resize: vertical; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #0056b3; }
+        .note { font-size: 12px; color: #888; margin-top: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Apply: Senior Backend Engineer</h1>
+    <form id="job-application">
+        
+        <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Please describe your relevant project experience.</label>
+            <textarea id="experience" name="experience"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="challenges">Describe a difficult technical hurdle you faced and how you solved it.</label>
+            <textarea id="challenges" name="challenges"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="salary">What are your salary expectations?</label>
+            <input type="text" id="salary" name="salary">
+        </div>
+        
+        <!-- This is a curveball question to test the bot's fallback mechanism -->
+        <div class="form-group">
+            <label for="ice_cream">What is your favorite flavor of ice cream?</label>
+            <input type="text" id="ice_cream" name="ice_cream">
+        </div>
+
+        <button type="submit">Submit Application</button>
+        <p class="note">Powered by CareerAI Demo Environment</p>
+    </form>
+</div>
+
+</body>
+</html>
