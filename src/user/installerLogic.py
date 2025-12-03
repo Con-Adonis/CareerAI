@@ -13,3 +13,9 @@ def apiConfirm():
         data = json.load(f)
         key = data.get('apiKey', None)
     print("successfully read API key:", key)
+
+def infoEntry(userInfo):
+    with open('user_info.json', 'w') as f:
+        json.dump(userInfo, f)
+    
+    print("successfully wrote user info")
