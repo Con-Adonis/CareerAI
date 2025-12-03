@@ -55,7 +55,7 @@ class survey(tk.Frame):
 
         #SURVEY
         #Q1 - name
-        instruction_label = ttk.Label(self, text="Please enter your full name", font=("Helvetica", 12))
+        instruction_label = ttk.Label(self, text="Please enter your full name.", font=("Helvetica", 12))
         instruction_label.pack()
         nameEntry = ttk.Entry(self, width=50)
         nameEntry.pack()
@@ -71,7 +71,7 @@ class survey(tk.Frame):
         #Q3 - project
         Frame = ttk.Frame(self)
         Frame.pack(pady=10)
-        instruction_label = ttk.Label(self, text="Please describe a project you are proud of", font=("Helvetica", 12))
+        instruction_label = ttk.Label(self, text="Please describe a project that you are proud of", font=("Helvetica", 12))
         instruction_label.pack()
         projectEntry = ttk.Entry(self, width=50)
         projectEntry.pack()
@@ -92,8 +92,19 @@ class survey(tk.Frame):
         salaryEntry = ttk.Entry(self, width=50)
         salaryEntry.pack()
 
+        #pass data to installerLogic/infoEntry
+        def passData():
+            newData = {
+                "Please enter your full name.": nameEntry.get(),
+                "Please enter your email address": emailEntry.get(),
+                "Please describe a project that you are proud of": projectEntry.get(),
+                "Please describe a chalenging technical problem you overcame": challengeEntry.get(),
+                "What salary range are you looking for?": salaryEntry.get()
+            }
+            infoEntry(newData)
+
         #submit button
-        button = ttk.Button(self, text="Submit Survey", command=lambda: controller.show_frame(quit))
+        button = ttk.Button(self, text="Submit Survey", command=lambda:[passData(), controller.show_frame(quit)])
         button.pack(pady=20)
 
 class quit(tk.Frame):

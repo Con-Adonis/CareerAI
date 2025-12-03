@@ -14,8 +14,16 @@ def apiConfirm():
         key = data.get('apiKey', None)
     print("successfully read API key:", key)
 
-def infoEntry(userInfo):
-    with open('user_info.json', 'w') as f:
-        json.dump(userInfo, f)
+def infoEntry(newData):
+    pathname = "data/userInfo.json"
+
+    if os.path.exists(pathname):
+        with open(pathname, 'r') as f:
+            userData = json.load(f)
+    else:
+        userData = {}
     
-    print("successfully wrote user info")
+    userData.update(newData)
+
+    with open(pathname, 'w') as f:
+        json.dump(userData, f, indent=4)
