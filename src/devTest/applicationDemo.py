@@ -2,6 +2,7 @@ import os
 import time
 #from sentence_transformers import SentenceTransformer, util
 import re
+import json
 
 '''
 #configuration and constants
@@ -20,7 +21,7 @@ def stringComparison(str1, str2):
 def readApplication():
     pathname = "src/devTest/applicationExample.html"
 
-    #sanity check
+    #check pathing
     if os.path.exists(pathname):
         app = open(pathname, "r")
     else:
@@ -31,7 +32,30 @@ def readApplication():
         if "label for" in line:
             print(f"before: {line}")
             #TODO: parse HTML info correctly
-            parseQuestion = re.search(line, "></")
-            print(f"After: {parseQuestion}")
+            question = filterWording(line.strip())
+            stringComparison(question)
+
+def filterWording(line):
+    between = False
+    question = ""
+    for c in line[1:]:
+        if c == ">":
+            between = True
+            continue
+        
+        if c == "<":
+            return question
+        
+        if between:
+            question += c
+        
+    return("Error extracting question")
+
+def stringComparison(line):
+    with open('data/userInfo.json', 'r') as f:
+        userData = json.load(f)
+    
+    print(f"{line}, {userData}")
+
 
 readApplication()
